@@ -8,15 +8,16 @@ const int WIDTH = 40;
 const int HEIGHT = 20;
 const char LIVE = '#';
 const char DEAD = ' ';
+using namespace std;
 
-using Grid = std::vector<std::vector<bool>>;
+using Grid = vector<vector<bool>>;
 
 void printGrid(const Grid& grid) {
     system("clear");
     for (int y = 0; y < HEIGHT; ++y) {
         for (int x = 0; x < WIDTH; ++x)
-            std::cout << (grid[y][x] ? LIVE : DEAD);
-        std::cout << '\n';
+            cout << (grid[y][x] ? LIVE : DEAD);
+        cout << '\n';
     }
 }
 
@@ -54,13 +55,13 @@ void seed(Grid& grid) {
 }
 
 int main() {
-    Grid grid(HEIGHT, std::vector<bool>(WIDTH, false));
+    Grid grid(HEIGHT, vector<bool>(WIDTH, false));
     seed(grid);
 
     while (true) {
         printGrid(grid);
         grid = nextGeneration(grid);
-        std::this_thread::sleep_for(std::chrono::milliseconds(200));
+        this_thread::sleep_for(chrono::milliseconds(200));
     }
 
     return 0;
