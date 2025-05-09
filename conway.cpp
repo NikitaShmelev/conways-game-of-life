@@ -24,7 +24,7 @@ struct GameStats {
     int liveCells = 0;
 };
 
-// Przenośna funkcja czyszczenia ekranu
+// Clear screen with terminal command
 void clearScreen() {
 #ifdef _WIN32
     system("cls");
@@ -33,7 +33,7 @@ void clearScreen() {
 #endif
 }
 
-// Przenośna funkcja sprawdzająca czy jest input
+// Check is input, part of conio.h, not available on unix systems
 bool kbhit() {
     struct termios oldt, newt;
     int ch;
