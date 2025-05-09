@@ -162,3 +162,7 @@ int main() {
 ## **License**
 This project is open-source and available under the MIT License.
 
+## Run applicaiton
+'''
+g++ -std=c++17 -o conway conway.cpp && ./conway
+'''
