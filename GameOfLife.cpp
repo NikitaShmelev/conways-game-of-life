@@ -11,7 +11,7 @@
 #include <fcntl.h>
 
 using namespace std;
-namespace fs = std::filesystem;
+namespace fs = filesystem;
 
 /* ---------- term:: implementation ---------- */
 void term::clearScreen() {
@@ -52,7 +52,7 @@ void GameOfLife::randomSeed(int density) {
 
 void GameOfLife::clear() {
     for (auto& row : grid_)
-        std::fill(row.begin(), row.end(), false);
+        fill(row.begin(), row.end(), false);
 }
 
 bool GameOfLife::loadPattern(const string& filename) {
@@ -108,7 +108,7 @@ void GameOfLife::updateStats() {
     ++stats_.generation;
     stats_.liveCells = 0;
     for (const auto& row : grid_)
-        stats_.liveCells += std::count(row.begin(), row.end(), true);
+        stats_.liveCells += count(row.begin(), row.end(), true);
 }
 
 void GameOfLife::print() const {

@@ -1,7 +1,7 @@
 #pragma once
 #include <vector>
 #include <string>
-
+using namespace std;
 
 /// Simple terminal helpers kept in one translation unit for the sake of minimalism.
 namespace term {
@@ -11,7 +11,7 @@ namespace term {
 
 class GameOfLife {
 public:
-    using Grid = std::vector<std::vector<bool>>;
+    using Grid = vector<vector<bool>>;
 
     struct Stats {
         int generation{0};
@@ -22,13 +22,13 @@ public:
                char liveCh = '#', char deadCh = ' ')
         : width_(width), height_(height),
           LIVE(liveCh), DEAD(deadCh),
-          grid_(height, std::vector<bool>(width, false)) {}
+          grid_(height, vector<bool>(width, false)) {}
 
     // Public actions that can be triggered by the user
     void randomSeed(int density = 25);
     void clear();
-    bool loadPattern(const std::string& file);
-    bool savePattern(const std::string& file) const;
+    bool loadPattern(const string& file);
+    bool savePattern(const string& file) const;
 
     // Starts the blocking game loop
     void run();
